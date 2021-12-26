@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share a color!</title>
+    <link rel="icon" href="icon.png">
+</head>
+<body style="font-family: sans-serif;">
+    <h1><img src="icon.png" height="20">Share a color!</h1>
+    <input id="color" placeholder="HEX code" oninput="g()" value="#"><br>
+    <textarea id="re">Your link will show here.</textarea>
+    <script>
+        function g() {
+            color = document.getElementById('color').value
+            link = ('https://color.jacobdrath.co/color'+color)
+            document.getElementById('re').value=(link)
+        }
+    </script>
+</body>
+</html>
