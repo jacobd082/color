@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Maker</title>
+    <link rel="icon" href="icon.png">
+</head>
+<body style="font-family: sans-serif;">
+    <input id="one" placeholder="Start color" oninput="m()"> to <input id="two" placeholder="End color" oninput="m()">
+    <script>
+        function m() {
+            document.body.style.backgroundImage=('linear-gradient(to right, '+document.getElementById('one').value+' , '+document.getElementById('two').value+')')
+        }
+    </script>
+</body>
+</html>

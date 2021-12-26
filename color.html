@@ -8,6 +8,7 @@
     <link rel="icon" href="icon.png">
 </head>
 <body onclick="g()" style="font-family: sans-serif;">
+    <script src="save.js"></script>
     <div style="display: none;" id="opt"></div>
     <div style="
     margin: 0;
@@ -67,6 +68,7 @@
             document.title=(color)
             document.getElementById('col').innerHTML=(color)
         }
+        saveColor(color)
     }
     function set() {
         var color = document.getElementById('set').value
@@ -74,6 +76,8 @@
         document.title=(color)
         document.getElementById('col').innerHTML=(color)
         navigator.clipboard.writeText(document.getElementById('col').innerHTML)
+        saveColor(color)
+
     }
     g()
     window.addEventListener("mousedown", g)
