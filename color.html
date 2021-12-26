@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color</title>
+    <link rel="icon" href="icon.png">
+</head>
+<body onclick="g()" style="font-family: sans-serif;">
+    <div style="display: none;" id="opt"></div>
+    <div style="
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+    " id="col"></div>
+    
+    Set: <input type="color" oninput="set()" id="set">
+
+
+<script>
+    var a = location.href; 
+    var b = a.substring(a.indexOf("#")+1);
+    if (b=='https://color.jacobdrath.co/color') {
+        newt=null
+    } else if (b==null) {
+        newt=null
+    } else {
+        newt = true
+    }
+    
+    var optc=false
+    function g() {
+        if (newt==null) {
+            if (b=='https://color.jacobdrath.co/color') {
+                var color = ('#'+Math.floor(Math.random()*16777215).toString(16))
+                document.body.style.background=color
+                document.title=(color)
+                document.getElementById('col').innerHTML=(color)
+                navigator.clipboard.writeText(document.getElementById('col').innerHTML)
+            } else if (b==null) {
+                var color = ('#'+Math.floor(Math.random()*16777215).toString(16))
+                document.body.style.background=color
+                document.title=(color)
+                document.getElementById('col').innerHTML=(color)
+                navigator.clipboard.writeText(document.getElementById('col').innerHTML)
+            } else {
+                var color = '#'+b
+                document.body.style.background=color
+                document.title=(color)
+                document.getElementById('col').innerHTML=(color)
+            }
+            newt = null
+        } else {
+            var color = ('#'+b)
+            document.body.style.background=color
+            document.title=(color)
+            document.getElementById('col').innerHTML=(color)
+        }
+    }
+    function set() {
+        var color = document.getElementById('set').value
+        document.body.style.background=color
+        document.title=(color)
+        document.getElementById('col').innerHTML=(color)
+        navigator.clipboard.writeText(document.getElementById('col').innerHTML)
+    }
+    g()
+    window.addEventListener("mousedown", g)
+</script>
+</body>
+</html>

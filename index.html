@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors | By Jacob Drath</title>
+    <link rel="icon" href="icon.png">
+</head>
+<body style="font-family: sans-serif;">
+    <style>
+        .button {
+            padding: 8px;
+            background-color: blue;
+            color: white;
+            text-decoration: none;
+            font-size: large;
+            font-weight: bold;
+            border-style: none;
+        }
+        .button-2 {
+            padding: 8px;
+            background-color: rgb(95, 95, 95);
+            color: white;
+            text-decoration: none;
+            font-size: large;
+            font-weight: bold;
+            border-style: none;
+        }
+        .color {
+            width: 100%;
+            height: 50px;
+            margin: 0;
+        }
+    </style>
+    <img src="icon.png" height="300">
+    <h1>Colors by Jacob Drath</h1>
+    <a href="color" class="button">Make a random or choose a color</a>  <a href="share" class="button-2">Share a color</a>
+    <h2>Browse colors:</h2>
+    <!--<div class="color" style="background-color: #ced3fe;" onclick="window.open('https://color.jacobdrath.co/color#ced3fe')">#ced3fe</div>
+    <div class="color" style="background-color: #f198e1;" onclick="window.open('https://color.jacobdrath.co/color#f198e1')">#f198e1</div>-->
+    
+    <div id="random">
+        <!--<div class="color" style="background-color: #661f15;" onclick="window.open('https://color.jacobdrath.co/color#661f15')">#661f15</div>-->
+    </div>
+    <button class="button-2" onclick="newcol()">New color</button>
+    <script>
+        function newcol() {
+            var color = ('#'+Math.floor(Math.random()*16777215).toString(16))
+            var newcol = ('<div class="color" style="background-color: '+color+';" onclick="window.open(\'https://color.jacobdrath.co/color'+color+'\')">'+color+'</div>')
+            var setnew = ((document.getElementById('random').innerHTML)+newcol)
+            document.getElementById('random').innerHTML=(setnew)
+        }
+    </script>
+</body>
+</html>
