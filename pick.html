@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick a color</title>
+    <link rel="icon" href="icon.png">
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+</head>
+<body>
+    <script src="save.js"></script>
+    <center><div style="background-color: white; border-radius: 15px; padding: 15px; width: fit-content; border-top-right-radius: 200px; border-top-left-radius: 200px;"><div id="picker"></div><div id="color"></div>
+    <button onclick="view()">View in fullscreen</button>  <button onclick="save()">Save</button>
+    </center>
+    <style>
+        button {
+            border-style: none;
+            border-radius: 500px;
+            background-color: black;
+            color: white;
+            font-family: sans-serif;
+        }
+    </style>
+
+
+    <script>
+        var colorPicker = new iro.ColorPicker("#picker", {
+        // Set the size of the color picker
+        width: 320,
+        // Set the initial color to pure red
+        color: "#f00"
+        });
+
+        function s() {
+            var hex = colorPicker.color.hexString;
+            //alert(hex)
+            document.body.style.backgroundColor=(hex)
+            document.getElementById('color').innerHTML=(hex)
+        }
+
+        function view() {
+            var hex = colorPicker.color.hexString;
+            window.open('https://color.jacobdrath.co/color'+hex)
+        }
+        function save() {
+            var hex = colorPicker.color.hexString;
+            saveColor(hex)
+        }
+        document.addEventListener("mousemove", s)
+        window.addEventListener("mousemove", s)
+    </script>
+</body>
+</html>
